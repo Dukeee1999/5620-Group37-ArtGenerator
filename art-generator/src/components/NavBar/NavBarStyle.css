@@ -7,7 +7,7 @@
     padding-left: 1rem;
     z-index: 2;
     position: absolute;
-    color: #fff;
+    color: rgb(255, 255, 255);
 }
 
 .navbar-bg {
