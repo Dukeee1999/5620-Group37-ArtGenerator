@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react"
-import { Form, Button, Card, Alert } from "react-bootstrap"
+import { Stack, Row, Form, Button, Card, Alert, InputGroup } from "react-bootstrap"
 import { useAuth} from "../../contexts/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
+import "./Login.css"
 
 export default function Login() {
   const emailRef = useRef()
@@ -28,29 +29,48 @@ export default function Login() {
   }
 
   return (
-    <>
-      <Card>
-        <Card.Body>
-          <h2 className="text-center mb-4">Log In</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
-            </Form.Group>
-            <Form.Group id="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" ref={passwordRef} required />
-            </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
-              Log In
-            </Button>
-          </Form>
-        </Card.Body>
-      </Card>
-      <div className="w-100 text-center mt-2">
-        Need an account? <Link to="/signup">Sign Up</Link>
-      </div>
-    </>
+   <>
+    <div className="container">
+          <h2 className="container">Log In</h2>
+  
+ {error && <Alert variant="danger">{error}</Alert>}
+          <div className="form">
+            <Form onSubmit={handleSubmit}>
+              <Stack gap={2}>
+              <Form.Group className="" controlId="email">
+                <InputGroup size="lg">
+                  <Row>
+                    <Form.Label>Email </Form.Label>
+                  </Row>
+                  <Row>
+                    <Form.Control size="lg" lg={2} type="email" placeholder="Email address" ref={emailRef} required />
+                  </Row>
+                </InputGroup>
+              </Form.Group>
+
+                <Form.Group className="" controlId="password">
+                  <Row>
+                    <Form.Label>Password </Form.Label>
+                  </Row>
+                  <Row>
+                    <Form.Control type="password" placeholder="Password" ref={passwordRef} required />
+                  </Row>
+                </Form.Group>
+              </Stack>
+
+                <Button disabled={loading} className="mid w-100" type="submit">
+                  Log In
+                </Button>
+
+              <Stack gap={1}>
+                <span id="jump2SignUp" className="container">
+              Need an account? <Link to="/signup">Sign Up</Link>
+                </span>
+              </Stack>
+                
+              </Form>
+            </div>
+          </div>
+        </>
   )
 }
