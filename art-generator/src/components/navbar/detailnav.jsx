@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import React from "react";
 import { useLocation } from "react-router-dom";
-const Navbar = () => {
+const DetailsNav = () => {
   const { user } = useContext(AuthContext);
 
   const handleClick = () => {
@@ -31,12 +31,19 @@ const Navbar = () => {
         )
           : (
             <div className="navItems">
-              <Link to="/register" style={{ color: "inherit", textDecoration: "none" }}>
-                <button className="navButton">Register</button>
+            <button className="navButton" onClick={handleClick} >Share</button>
+            <button className="navButton" onClick={handleClick} >Upload</button>
+            <button className="navButton" onClick={handleClick} >3D View</button>
+
+
+              {/* <Link to="/register" style={{ color: "inherit", textDecoration: "none" }}>
+                <button className="navButton">Share</button>
               </Link>
               <Link to="/login" style={{ color: "inherit", textDecoration: "none" }}>
                 <button className="navButton">Login</button>
-              </Link>
+              </Link> */}
+
+      
               
             </div>
           )}
@@ -45,4 +52,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default DetailsNav;

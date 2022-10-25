@@ -13,7 +13,7 @@ import {
 //   import axios from "axios";
   import React from "react";
   
-  
+
   const Header = ({ type }) => {
   
     const [courses, setCourses] = useState({
@@ -33,10 +33,14 @@ import {
       navigate(`/`)
     };
     const handleSearch = async (e) => {
-    //   var universityName = document.getElementById("university").value;
-    //   if(universityName.length ==0||universityName.includes("@") || universityName.includes("/") ||universityName.length <=2 || universityName.includes(".")){
-    //     alert("Please enter a valid university name");
-    //   }
+      
+      var description = document.getElementById("description").value;
+      console.log(description);
+      if(description.length ==0||description.includes("@") || description.includes("/") ||description.length <=2 || description.includes(".")){
+        alert("Please enter a valid description");
+      }else{
+        navigate("/details")
+      }
   
   
   
@@ -72,9 +76,9 @@ import {
                 <div className="headerSearchItem">
                   <FontAwesomeIcon icon={faSchool} className="headerIcon" />
                   <input
-                    id="university"
+                    id="description"
                     type="text"
-                    placeholder="Entering your discriptions"
+                    placeholder="Entering your description"
                     className="headerSearchInput"
                     onChange={handleChange}
                     style={{width: "900px"}}

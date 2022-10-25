@@ -3,6 +3,7 @@ import './App.css';
 import Home from "./pages/home/home";
 import Signup from './pages/signup/signup';
 import Login from './pages/login/login';
+import Details from './pages/artworkDetails/details';
 
 import React, { Component }  from 'react';
 import {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/register" element={<Signup/>}/>
         <Route path="/login" element={<Login/>}/>
+        <Route path="/details" element={<Details/>}/>
 
       </Routes>
     </BrowserRouter>
