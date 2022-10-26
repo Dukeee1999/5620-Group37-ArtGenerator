@@ -3,6 +3,8 @@ import { Stack, Row, Form, Button, Card, Alert, InputGroup } from "react-bootstr
 import { useAuth} from "../../contexts/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
 import "./Login.css"
+import NavbarLogin from "../../components/NavBar/NavBarLogin"
+
 
 export default function Login() {
   const emailRef = useRef()
@@ -30,6 +32,7 @@ export default function Login() {
 
   return (
    <>
+  <NavbarLogin/>
     <div className="container">
           <h2 className="container">Log In</h2>
   
