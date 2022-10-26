@@ -2,6 +2,7 @@
   "name": "art-generator",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5000", 
   "dependencies": {
     "@pmndrs/branding": "^0.0.8",
     "@react-three/drei": "^9.37.1",
