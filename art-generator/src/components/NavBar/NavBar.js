@@ -34,7 +34,7 @@ function Navbar() {
             <ul className="nav-menu">
                 <Link to='home' smooth={true} duration={500} ><li>Home</li></Link>
                 <Link to='carousel' smooth={true} duration={500} ><li>Artworks</li></Link>
-                <Link to='' smooth={true} duration={500} ><li>About us</li></Link>
+                <Link to='aboutus' smooth={true} duration={500} ><li>About us</li></Link>
             </ul>
             {
                 currentUser ? <div className={'user'}><text>{currentUser.email}</text> <AwesomeButton type="secondary" onPress={handleLogout}>Logout</AwesomeButton></div> : 

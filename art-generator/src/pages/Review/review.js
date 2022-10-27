@@ -29,7 +29,7 @@ function Review() {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#eee',
     flexDirection:'column',
     padding: '30px',
     maxWidth:'100%',
