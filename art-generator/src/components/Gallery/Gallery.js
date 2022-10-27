@@ -4,10 +4,39 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { useCursor, MeshReflectorMaterial, Image, Text, Environment } from '@react-three/drei'
 import { useRoute, useLocation } from 'wouter'
 import getUuid from 'uuid-by-string'
+import {
+  getFirestore,
+  query,
+  getDocs,
+  collection,
+  where,
+  addDoc,
+  updateDoc,
+} from "firebase/firestore";
+import { db,auth } from '../../firebase.config'
 
 const GOLDENRATIO = 1.61803398875
 
 export default function Gallery({ images }) {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+          
+      const getUser = async () => {
+         
+        const userCol = query(collection(db, 'users'),where('uid', '==', auth.currentUser.uid));
+        const userSnapshot = await getDocs(userCol);
+        const userList = userSnapshot.docs.map(doc => doc.data());
+
+        // Set the result to the useState.
+        setUsers(userList);
+      }
+      console.log(users);
+      // Call the async function.
+      getUser()
+        .catch(console.error);
+
+     }, []);
   return (
     <Canvas style= {{position:"absolute"}} gl={{ alpha: false }} dpr={[1, 1.5]} camera={{ fov: 70, position: [0, 2, 15] }}>
       <color attach="background" args={['#191920']} />
