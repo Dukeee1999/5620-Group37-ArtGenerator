@@ -4,6 +4,17 @@ import './HeroStyle.css'
 import { AwesomeButton } from 'react-awesome-button';
 import 'react-awesome-button/dist/styles.css';
 import Video from '../../assets/promo-video.mov'
+import {db} from '../../firebase.config'
+import { auth } from "../../firebase.config"
+import {
+  getFirestore,
+  query,
+  getDocs,
+  collection,
+  where,
+  addDoc,
+  updateDoc,
+} from "firebase/firestore";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -42,6 +53,19 @@ function Hero() {
         }
         setPrediction(prediction);
         }
+        await addDoc(collection(db, "artworks"), {
+          id : id,
+          creatorId: auth.currentUser.uid,
+          prompt: e.target.prompt.value,
+          image: prediction.output,
+          createdAt: new Date(),
+          reviews: [],
+        });
+        const userRef = query(collection(db, "users"),where("uid", "==", auth.currentUser.uid));
+        const userSnapshot = await getDocs(userRef);
+        updateDoc(userSnapshot.docs[0].ref, {
+          artworkCollection: [...userSnapshot.docs[0].data().artworkCollection, id],
+        })
     };
     return (
         <div className='hero'>
