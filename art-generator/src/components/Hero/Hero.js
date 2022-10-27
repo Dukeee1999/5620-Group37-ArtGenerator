@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Image } from "react-bootstrap";
 import './HeroStyle.css'
 import { AwesomeButton } from 'react-awesome-button';
 import 'react-awesome-button/dist/styles.css';
@@ -27,17 +28,24 @@ function Hero() {
         return;
       }
       setPrediction(prediction);
-        const getResponse = await fetch(`/api/predict/${prediction.prediction_id}`);
+      let id = prediction.prediction_id;
+      while (
+        prediction.status !== "succeeded" &&
+        prediction.status !== "failed"
+      ) {
+        await sleep(1000);
+        const getResponse = await fetch(`/api/predict/${id}`);
         prediction = await getResponse.json();
         if (getResponse.status !== 201 && getResponse.status !== 200) {
           setError(prediction.detail);
           return;
         }
         setPrediction(prediction);
+        }
     };
     return (
         <div className='hero'>
-                        <video autoPlay loop muted id='video'>
+            <video autoPlay loop muted id='video'>
                 <source src={Video} type='video/mp4' />
             </video>
             <div className="overlay"></div>
@@ -57,7 +65,7 @@ function Hero() {
                     <div>
                         <p>{prediction.status}</p>
                         {prediction.output && (
-                        <image
+                        <Image
                             src={prediction.output[prediction.output.length - 1]}
                             alt="output"
                             width={500}

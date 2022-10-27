@@ -25,7 +25,7 @@ def predict():
     prediction = replicate.predictions.create(
             version=version,
             input={
-                "text":prompt,
+                "prompt":prompt,
                 "grid": '1',
             },
     )
