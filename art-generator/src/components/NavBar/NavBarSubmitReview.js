@@ -10,7 +10,7 @@ import { AwesomeButton } from 'react-awesome-button';
 
 import './NavBarStyle.css'
 
-function NavbarReview() {
+function NavbarSubmitReview() {
     const [error, setError] = useState("")
     const { currentUser, logout } = useAuth();
     const nav = useNavigate();
@@ -23,7 +23,7 @@ function NavbarReview() {
 
 
     async function handleLogout() {
-        nav('/submitreview')
+        nav('/review')
         // window.prompt('请输入喜欢的内容')
       }
     return (
@@ -34,11 +34,12 @@ function NavbarReview() {
             <ul className="nav-menu">
             </ul>
             <div>
-            <AwesomeButton id = "review" type="secondary" onPress={handleLogout}>Review</AwesomeButton></div> 
+            <AwesomeButton id = "review" type="secondary" onPress={handleLogout}>View All </AwesomeButton></div> 
          
 
         </div>
     )
 }
 
-export default NavbarReview
+
+export default NavbarSubmitReview
