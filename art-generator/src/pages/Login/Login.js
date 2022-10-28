@@ -40,7 +40,7 @@ export default function Login() {
           <div className="form">
             <Form onSubmit={handleSubmit}>
               <Stack gap={2}>
-              <Form.Group className="" controlId="email">
+              <Form.Group className="login" controlId="email">
                 <InputGroup size="lg">
                   <Row>
                     <Form.Label>Email </Form.Label>
@@ -51,7 +51,7 @@ export default function Login() {
                 </InputGroup>
               </Form.Group>
 
-                <Form.Group className="" controlId="password">
+                <Form.Group className="login" controlId="password">
                   <Row>
                     <Form.Label>Password </Form.Label>
                   </Row>

@@ -41,7 +41,7 @@ function SubmitReview() {
     <div class = "reviewPanel">
     <div class = "row">
         <div class = "row">
-        <h2>How you feel?</h2>
+        <h2>How do you feel?</h2>
 
         <h3 className='textcolumn' >Comments on artwork</h3>
         <input type="text" placeholder="Enter your review" onblur="getVal()"/>

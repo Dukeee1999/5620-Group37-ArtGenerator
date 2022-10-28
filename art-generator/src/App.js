@@ -11,6 +11,8 @@ import Signup from './pages/Signup/Signup';
 import Gallery from './components/Gallery/Gallery';
 import Review from "./pages/Review/review";
 import SubmitReview from './pages/SubmitReview/submitReview';
+import AboutUs from './components/AboutUs/AboutUs';
+const pexel = (id) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260`
 
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/review" element={<Review/>}/>
           <Route path="/submitreview" element={<SubmitReview/>}/>
+          <Route path="/aboutus" element={<AboutUs/>}/>
 
           <Route path="/gallery" element={<Gallery/>}/>
         </Routes>

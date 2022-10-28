@@ -13,6 +13,7 @@ console.log(localStorage.getItem("user"));
 function ReviewCard() {
   return (
     <div className="reviewItem">
+        <div id="innerContainer">
     <div className="riAvart">
         <div className="avatar">
         <img src={Artist}alt="Avatar" class="avatar"/>
@@ -32,7 +33,7 @@ function ReviewCard() {
             <span>Price</span>
             <button>$1000</button>
         </div>
-
+        </div>
     </div>
 </div>
     

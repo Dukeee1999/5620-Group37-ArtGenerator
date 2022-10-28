@@ -11,7 +11,7 @@
 .reviewBoard {  border: 1px solid black;
     padding: 600px;
     color: #fff;
-    background-color: #fff;
+    background-image: linear-gradient(#595CE8, #709dff);
 	border-radius: 5px;
     align-items: center;
     justifyContent: center;
@@ -21,13 +21,13 @@
 
 }
 
-  .img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20%;
+.img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20%;
 
 }
 
@@ -38,26 +38,52 @@
     border-radius: 50%;
   }
 
-  .reviewItem {
-    border: solid lightgray;
-    padding: 10px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    margin-bottom: 20px;
-  }
-  .riAvart {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .riContext {
-    flex: 1;
-    margin-top: 15px;
-    margin-bottom: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+.reviewItem {
+  border: solid lightgray;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.riAvart {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.riContext {
+  flex: 1;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.reviewPanel {
+  border-radius: 15px;
+  opacity: 0.75;
+  margin-left: 26%;
+}
+
+:hover .reviewPanel { 
+  opacity: 0.9;
+}
+
+img {
+  opacity: 0.85;
+}
+
+:hover img {
+  opacity: 1;
+}
+
+.reviewPanel .row {
+  margin: 20px;
+}
+
+button {
+  opacity: 1;
+}
