@@ -5,6 +5,7 @@
     border-radius: 15px;
     margin-bottom: 20px;
     opacity: 0.7;
+    background-color: #eee;
 }
 
 :hover .reviewItem {
@@ -89,4 +90,8 @@
     border: none;
     height: 40px;
     width:  100px
+  }
+
+  .avatar {
+    border: solid #6f5ae8 1px;
   }

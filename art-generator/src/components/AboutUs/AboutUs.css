@@ -5,10 +5,11 @@
 
 #about > .container {
     display: inline-grid;
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 60% 40%;
     margin: 2em 10% 2em 10%;
     width: 100%;
     background-image: linear-gradient(45deg, #4a4fd6, #ce40b6);
+    box-shadow: 0 0 1px 1px #6f5ae8;
 }
 
 :hover #about {
@@ -24,13 +25,14 @@
     font-size: 2em;
     font-family: poppins, helvetica, "sans-serif", arial;
     font-weight: 600;
-    padding: 20px 20px 20px 50px;
+    padding: 0 20px 20px 50px;
 }
 
 #about > .container .leftdown {
     padding: 0 20px 0 50px;
 }
 
-#about > .right {
+#about .right img {
     float: right;
+    margin-right: 100px;
 }
