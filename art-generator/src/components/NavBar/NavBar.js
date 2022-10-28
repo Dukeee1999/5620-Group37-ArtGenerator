@@ -17,6 +17,9 @@ function Navbar() {
     const handleNav = () => {
         nav('/login')
     }
+    const handleGallery = () => {
+        nav('/gallery')
+    }
     async function handleLogout() {
         setError("")
         try {
@@ -37,7 +40,7 @@ function Navbar() {
                 <Link to='aboutus' smooth={true} duration={500} ><li>About us</li></Link>
             </ul>
             {
-                currentUser ? <div className={'user'}><text>{currentUser.email}</text> <AwesomeButton type="secondary" onPress={handleLogout}>Logout</AwesomeButton></div> : 
+                currentUser ? <div className={'user'}><text>{currentUser.email}</text> <AwesomeButton type="secondary" onPress={handleLogout}>Logout</AwesomeButton><AwesomeButton type="secondary" onPress={handleGallery}>Your gallery</AwesomeButton></div> : 
                 <div className="nav-icons" onClick={handleNav}>
                     <BsPerson className='icon' />
                 </div>

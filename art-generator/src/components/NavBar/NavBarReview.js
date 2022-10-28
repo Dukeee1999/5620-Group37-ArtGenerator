@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import { BsPerson } from 'react-icons/bs'
 import { HiOutlineMenuAlt4 } from 'react-icons/hi'
 import { AiOutlineClose } from 'react-icons/ai'
-import { Link } from 'react-scroll'
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { useAuth } from '../../contexts/AuthContext'
 import { AwesomeButton } from 'react-awesome-button';
 import { useLocation } from 'react-router-dom';
@@ -35,9 +34,9 @@ function NavbarReview() {
       }
     return (
         <div name='navbar' className={'navbar'}>
-            <div className={'logo'}>
+            <Link to="/" className={'logo'} style={{color:"white"}}>
                 <h2>ARTNIFTIAL.</h2>
-            </div>
+            </Link>
             <ul className="nav-menu">
             </ul>
             <div>

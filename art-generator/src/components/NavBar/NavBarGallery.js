@@ -16,20 +16,12 @@ function NavbarLogin() {
     const handleNav = () => {
         nav('/login')
     }
-    async function handleLogout() {
-        setError("")
-        try {
-          await logout()
-          nav("/")
-        } catch {
-          setError("Failed to log out")
-        }
-      }
     return (
         <div name='navbar' className={'navbar'}>
-            <Link to="/" className={'logo'} style={{color:"white"}}>
+            <Link to ="/" className={'logo'} style={{color:'white'}}>
                 <h2>ARTNIFTIAL.</h2>
             </Link>
+
         </div>
     )
 }

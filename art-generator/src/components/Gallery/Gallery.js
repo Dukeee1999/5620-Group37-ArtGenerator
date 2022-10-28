@@ -15,6 +15,8 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { db,auth } from '../../firebase.config'
+import { Button } from 'react-bootstrap'
+import NavbarGallery from '../NavBar/NavBarGallery'
 const pexel = (id) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260`
 
 
@@ -105,6 +107,8 @@ export default function Gallery() {
     }
     });
   return (
+    <div>
+    <NavbarGallery/>
     <Canvas style= {{position:"absolute"}} gl={{ alpha: false }} dpr={[1, 1.5]} camera={{ fov: 70, position: [0, 2, 15] }}>
       <color attach="background" args={['#191920']} />
       <fog attach="fog" args={['#191920', 0, 15]} />
@@ -128,6 +132,7 @@ export default function Gallery() {
         </mesh>
       </group>
     </Canvas>
+    </div>
   )
 }
 
