@@ -15,6 +15,7 @@ import {
   addDoc,
   updateDoc,
 } from "firebase/firestore";
+import GenedArt from "../GenedArt/GenedArt";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -86,17 +87,23 @@ function Hero() {
                 </form>
                 {error && <div>{error}</div>}
                 {prediction && (
-                    <div>
-                        <p>{prediction.status}</p>
-                        {prediction.output && (
-                        <Image
-                            src={prediction.output[prediction.output.length - 1]}
-                            alt="output"
-                            width={500}
-                            height={500}
-                        />
-                        )}
-                    </div>
+                  <div>
+                    {prediction.output && (
+                    <GenedArt status={prediction.status} show={true} art={"https://replicate.delivery/pbxt/5LOpHGqerHX7BSgDT93waiNvSHbgINyFsrPmAMO6q9QKYB9HA/out-0.png"}/>
+                    )}
+                  </div>
+                    // <div>
+                    //     <p>{prediction.status}</p>
+                    //     <p>{prediction.output[prediction.output.length - 1]}</p>
+                    //     {prediction.output && (
+                    //     <Image
+                    //         src={prediction.output[prediction.output.length - 1]}
+                    //         alt="output"
+                    //         width={500}
+                    //         height={500}
+                    //     />
+                    //     )}
+                    // </div>
                     )}
             </div>
         </div>
