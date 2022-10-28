@@ -10,27 +10,27 @@ import './reviewCard.css'
 
 
 console.log(localStorage.getItem("user"));
-function ReviewCard() {
+const ReviewCard=({username :username, comments: comments, rating: rating, price: price})  =>  {
   return (
     <div className="reviewItem">
     <div className="riAvart">
         <div className="avatar">
         <img src={Artist}alt="Avatar" class="avatar"/>
-            <div className="userName">Zihengwang</div>
+            <div className="userName">{username}</div>
         </div>
     </div>
     <div className='riContext'>
-        <span className="riInfo">Wonderful work I love it 
+        <span className="riInfo">{comments}
         </span>
     </div>
     <div className="riDetail">
         <div className="riRating">
             <span> Rating</span>
-            <button>100/100</button>
+            <button>{rating}/100</button>
         </div>
         <div className="riRating">
             <span>Price</span>
-            <button>$1000</button>
+            <button>${price}</button>
         </div>
 
     </div>

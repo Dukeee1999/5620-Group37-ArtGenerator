@@ -6,15 +6,18 @@ import { Link } from 'react-scroll'
 import { useNavigate } from "react-router-dom";
 import { useAuth } from '../../contexts/AuthContext'
 import { AwesomeButton } from 'react-awesome-button';
-
+import { useLocation } from 'react-router-dom';
+import {AuthContext} from '../../contexts/AuthContext';
 
 import './NavBarStyle.css'
 
 function NavbarSubmitReview() {
     const [error, setError] = useState("")
-    const { currentUser, logout } = useAuth();
     const nav = useNavigate();
+    const location = useLocation();
+    const { currentUser, logout } = useAuth();
 
+    console.log(currentUser.name);
     const handleNav = () => {
         nav('/login')
     }
@@ -23,8 +26,9 @@ function NavbarSubmitReview() {
 
 
     async function handleLogout() {
-        nav('/review')
-        // window.prompt('请输入喜欢的内容')
+        const code = location.pathname.split("/")[1];
+        nav(`/${code}/review`)
+
       }
     return (
         <div name='navbar' className={'navbar'}>
@@ -34,7 +38,8 @@ function NavbarSubmitReview() {
             <ul className="nav-menu">
             </ul>
             <div>
-            <AwesomeButton id = "review" type="secondary" onPress={handleLogout}>View All </AwesomeButton></div> 
+            <AwesomeButton id = "review" type="secondary" onPress={handleLogout}>View All </AwesomeButton>
+            </div> 
          
 
         </div>
