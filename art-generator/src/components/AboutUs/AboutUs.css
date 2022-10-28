@@ -1,0 +1,36 @@
+#about {
+    background-image: linear-gradient(#595CE8, #709dff);
+    opacity: 0.7;
+}
+
+#about > .container {
+    display: inline-grid;
+    grid-template-columns: 70% 30%;
+    margin: 2em 10% 2em 10%;
+    width: 100%;
+    background-image: linear-gradient(45deg, #4a4fd6, #ce40b6);
+}
+
+:hover #about {
+    opacity: 1;
+}
+
+#about > .container > .left {
+    display: grid;
+    grid-template-rows: 30% 70%;
+}
+
+#about > .container .leftup {
+    font-size: 2em;
+    font-family: poppins, helvetica, "sans-serif", arial;
+    font-weight: 600;
+    padding: 20px 20px 20px 50px;
+}
+
+#about > .container .leftdown {
+    padding: 0 20px 0 50px;
+}
+
+#about > .right {
+    float: right;
+}

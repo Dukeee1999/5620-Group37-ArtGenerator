@@ -1,0 +1,92 @@
+
+.reviewItem {
+    border: solid lightgray;
+    padding: 10px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    opacity: 0.7;
+}
+
+:hover .reviewItem {
+  opacity: 1;
+}
+
+#innerContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 20px;
+    height: 200px;
+    width:  800px;
+}
+  .userName{
+    margin-top: 5px;
+    margin-left: 5px;
+
+    color: black;
+
+  }
+  .riAvart {
+    display: flex;
+    margin-top: 10px;
+
+    margin-left: 10px;
+
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .riContext {
+    flex: 1;
+    color: blueviolet;
+    margin-top: 90px;
+    margin-left: 90px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .riInfo {
+    width: auto;
+  }
+  
+  .tag {
+    margin-top: 20px;
+  }
+  
+  .tag>span {
+    border: solid #003580;
+    background: #003580;
+    color: white;
+    padding: 3px;
+    border-radius: 0.2em;
+    margin: 6px;
+  }
+  
+  .riDetail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .riRating {
+    display: grid;
+    /*display: flex;
+    justify-content: space-between;
+    height: 60px; */
+  }
+  .riRating > button {
+    margin: 0;
+  }
+
+  .riRating>button {
+    background-color: #003580;
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+    border: none;
+    height: 40px;
+    width:  100px
+  }
