@@ -42,6 +42,7 @@ export default function Signup() {
         name: userNameRef.current.value,
         role: roleRef.current.value,
         email: user.email,
+        artworkCollection: [],
       });
       nav("/")
     } catch {

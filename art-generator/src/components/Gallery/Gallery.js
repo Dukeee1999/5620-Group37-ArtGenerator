@@ -4,10 +4,118 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { useCursor, MeshReflectorMaterial, Image, Text, Environment } from '@react-three/drei'
 import { useRoute, useLocation } from 'wouter'
 import getUuid from 'uuid-by-string'
+import {
+  getFirestore,
+  query,
+  getDoc,
+  getDocs,
+  collection,
+  where,
+  addDoc,
+  updateDoc,
+} from "firebase/firestore";
+import { db,auth } from '../../firebase.config'
+const pexel = (id) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260`
+
 
 const GOLDENRATIO = 1.61803398875
 
-export default function Gallery({ images }) {
+export default function Gallery() {
+  const [artworks, setArtworks] = useState([]);
+  useEffect(() => {
+          
+      const getUserArtworks = async () => {
+         
+        const userCol = query(collection(db, 'users'),where('uid', '==', auth.currentUser.uid));
+        const userSnapshot = await getDocs(userCol);
+        const userList = userSnapshot.docs.map(doc => doc.data());
+        userList[0].artworkCollection.map((artwork) => {
+          const artCol = query(collection(db, 'artworks'),where('id', '==', artwork));
+          const artSnapshot = getDocs(artCol);
+          artSnapshot.then((snapshot) => {
+            const artList = snapshot.docs[0].data();
+            setArtworks(artworks => [...artworks, artList]);
+          })
+        })
+
+      }
+      // Call the async function.
+      getUserArtworks()
+        .catch(console.error);
+
+     }, []);
+
+     const images = artworks.map((artwork,index) => {
+      if(index==0){
+      return {
+        url: artwork.image[0],
+        position: [0, 0, 1.5],
+        rotation: [0, 0, 0]
+      }
+    }else if(index==1){
+      return {
+        url: artwork.image[0],
+        position: [-1.75, 0, 0.25],
+        rotation: [0, Math.PI / 2.5, 0]
+      }
+    }else if(index==2){
+      return {
+        url: artwork.image[0],
+        position: [-2.15, 0, 1.5],
+        rotation: [0, Math.PI / 2.5, 0]
+      }
+    }else if(index==3){
+      return {
+        url: artwork.image[0],
+        position: [-2, 0, 2.75],
+        rotation: [0, Math.PI / 2.5, 0]
+      }
+    }else if(index==4){
+      return {
+        url: artwork.image[0],
+        position: [-0.8, 0, -0.6],
+        rotation: [0, 0, 0]
+      }
+    }else if(index==5){
+      return {
+        url: artwork.image[0],
+        position: [0.8, 0, -0.6],
+        rotation: [0, 0, 0]
+      }
+    }else if(index==6){
+      return {
+        url: artwork.image[0],
+        position: [1.75, 0, 0.25],
+        rotation: [0, -Math.PI / 2.5, 0]
+      }
+    }
+    else if(index==7){
+      return {
+        url: artwork.image[0],
+        position: [2.15, 0, 1.5],
+        rotation: [0, -Math.PI / 2.5, 0]
+      }
+    }
+    else if(index==8){
+      return {
+        url: artwork.image[0],
+        position: [2, 0, 2.75],
+        rotation: [0, -Math.PI / 2.5, 0]
+      }
+    }
+    });
+    // { position: [0, 0, 1.5], rotation: [0, 0, 0], url: pexel(1103970) },
+    // // Back
+    // { position: [-0.8, 0, -0.6], rotation: [0, 0, 0], url: pexel(416430) },
+    // { position: [0.8, 0, -0.6], rotation: [0, 0, 0], url: pexel(310452) },
+    // // Left
+    // { position: [-1.75, 0, 0.25], rotation: [0, Math.PI / 2.5, 0], url: pexel(327482) },
+    // { position: [-2.15, 0, 1.5], rotation: [0, Math.PI / 2.5, 0], url: pexel(325185) },
+    // { position: [-2, 0, 2.75], rotation: [0, Math.PI / 2.5, 0], url: pexel(358574) },
+    // // Right
+    // { position: [1.75, 0, 0.25], rotation: [0, -Math.PI / 2.5, 0], url: pexel(227675) },
+    // { position: [2.15, 0, 1.5], rotation: [0, -Math.PI / 2.5, 0], url: pexel(911738) },
+    // { position: [2, 0, 2.75], rotation: [0, -Math.PI / 2.5, 0], url: pexel(1738986) }
   return (
     <Canvas style= {{position:"absolute"}} gl={{ alpha: false }} dpr={[1, 1.5]} camera={{ fov: 70, position: [0, 2, 15] }}>
       <color attach="background" args={['#191920']} />

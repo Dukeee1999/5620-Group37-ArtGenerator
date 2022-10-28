@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 import './PaintingStyle.css'
 
 import { Carousel } from 'react-carousel-minimal';
