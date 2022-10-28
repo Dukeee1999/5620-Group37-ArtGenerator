@@ -12,6 +12,9 @@ import Gallery from './components/Gallery/Gallery';
 import Review from "./pages/Review/review";
 import SubmitReview from './pages/SubmitReview/submitReview';
 import AboutUs from './components/AboutUs/AboutUs';
+import './App.scss';
+
+const pexel = (id) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260`
 
 function App() {
   return (
