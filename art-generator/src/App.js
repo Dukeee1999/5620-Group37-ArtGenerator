@@ -16,7 +16,6 @@ import './App.scss';
 
 const pexel = (id) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260`
 
-
 function App() {
   return (
     <BrowserRouter>
@@ -25,10 +24,9 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<Signup/>}/>
-          <Route path="/review" element={<Review/>}/>
-          <Route path="/submitreview" element={<SubmitReview/>}/>
+          <Route path="/:artCode/review" element={<Review/>}/>
+          <Route path="/:artCode/submitreview" element={<SubmitReview/>}/>
           <Route path="/aboutus" element={<AboutUs/>}/>
-
           <Route path="/gallery" element={<Gallery/>}/>
         </Routes>
       </AuthProvider>

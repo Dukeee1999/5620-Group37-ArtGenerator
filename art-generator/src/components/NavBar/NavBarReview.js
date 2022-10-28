@@ -6,15 +6,16 @@ import { Link } from 'react-scroll'
 import { useNavigate } from "react-router-dom";
 import { useAuth } from '../../contexts/AuthContext'
 import { AwesomeButton } from 'react-awesome-button';
-
-
-import './NavBarStyle.css'
+import { useLocation } from 'react-router-dom';
+import { useContext } from "react";
+import './NavBarStyle.css';
 
 function NavbarReview() {
     const [error, setError] = useState("")
     const { currentUser, logout } = useAuth();
     const nav = useNavigate();
-
+    const location = useLocation();
+    const navigate = useNavigate()
     const handleNav = () => {
         nav('/login')
     }
@@ -23,8 +24,14 @@ function NavbarReview() {
 
 
     async function handleLogout() {
-        nav('/submitreview')
+        // var user = localStorage.getItem("user")
+        const code = location.pathname.split("/")[1];
+        // console.log(`/${code}/submitreview`);
+
+        // console.log(`/${code}/submitreview`);
+        nav(`/${code}/submitreview`)
         // window.prompt('请输入喜欢的内容')
+
       }
     return (
         <div name='navbar' className={'navbar'}>
