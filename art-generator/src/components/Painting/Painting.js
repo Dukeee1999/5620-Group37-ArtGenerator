@@ -6,16 +6,6 @@ import { Carousel } from 'react-carousel-minimal';
 import StaryNight from '../../assets/stary-night.jpeg'
 import Japan from '../../assets/japan.jpeg'
 import CountrySide from '../../assets/country-side.jpeg'
-import {
-  getFirestore,
-  query,
-  getDocs,
-  collection,
-  where,
-  addDoc,
-  updateDoc,
-} from "firebase/firestore";
-import { db } from '../../firebase.config';
 
 const captionStyle = {
     fontSize: '2em',
@@ -41,25 +31,6 @@ const captionStyle = {
   ];
 
 function PaintingCarousel() {
-  const [artworks, setArtworks] = useState([]);
-
-  useEffect(() => {
-          
-      const getArtworks = async () => {
-         
-        const artworkCol = collection(db, 'artworks');
-        const artworkSnapshot = await getDocs(artworkCol);
-        const artworkList = artworkSnapshot.docs.map(doc => doc.data());
-
-        // Set the result to the useState.
-        setArtworks(artworkList);
-      }
-      
-      // Call the async function.
-      getArtworks()
-        .catch(console.error);
-
-     }, []);
     return (
     <div name='carousel' className='container'>
         <h2>Famous Arts</h2>
