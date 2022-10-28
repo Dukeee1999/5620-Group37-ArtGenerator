@@ -13,6 +13,7 @@ console.log(localStorage.getItem("user"));
 const ReviewCard=({username :username, comments: comments, rating: rating, price: price})  =>  {
   return (
     <div className="reviewItem">
+        <div id="innerContainer">
     <div className="riAvart">
         <div className="avatar">
         <img src={Artist}alt="Avatar" class="avatar"/>
@@ -32,7 +33,7 @@ const ReviewCard=({username :username, comments: comments, rating: rating, price
             <span>Price</span>
             <button>${price}</button>
         </div>
-
+        </div>
     </div>
 </div>
     

@@ -100,7 +100,7 @@ import { useEffect, useRef, useState } from 'react'
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundImage: 'linear-gradient(#606FEF, #709dff)',
     flexDirection:'column',
     padding: '30px',
     maxWidth:'100%',
