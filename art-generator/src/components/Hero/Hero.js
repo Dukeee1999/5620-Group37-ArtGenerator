@@ -25,6 +25,10 @@ function Hero() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(auth.currentUser===null){
+      window.alert("Please login to continue");
+      return
+    }
     const response = await fetch("/api/predict", {
       method: "POST",
       headers: {
