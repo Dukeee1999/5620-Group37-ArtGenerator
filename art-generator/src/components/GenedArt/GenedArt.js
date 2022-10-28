@@ -5,7 +5,8 @@ import "./GenedArt.css"
 function GenedArt(props) {
   const [show, setShow] = useState(props.show);
   const [art, setArt] = useState(props.art);
-  const [status, setStatus] = useState(props.status)
+  const [description, setDescription] = useState(props.description);
+//   const [status, setStatus] = useState(props.status)
   const handleClose = () => setShow(false);
 //   const handleShow = () => setShow(true);
 
@@ -24,7 +25,7 @@ function GenedArt(props) {
         ClassName="artModal"
       >
         <Modal.Header closeButton>
-          <Modal.Title>{status}</Modal.Title>
+          <Modal.Title>Your Artwork!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         <Container>
@@ -36,7 +37,7 @@ function GenedArt(props) {
                 />
             </Row>
         </Container>
-        No man's land
+        {description}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
