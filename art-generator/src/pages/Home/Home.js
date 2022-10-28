@@ -8,9 +8,6 @@ import { useAuth } from '../../contexts/AuthContext'
 
 
 
-var data = JSON.parse(localStorage.getItem("user"))
-console.log("here");
-console.log(data);
 function Home() {
   return (
     <div>
