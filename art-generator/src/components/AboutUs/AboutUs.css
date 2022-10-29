@@ -6,7 +6,7 @@
 #about > .container {
     display: inline-grid;
     grid-template-columns: 60% 40%;
-    margin: 2em 10% 2em 10%;
+    margin: 2em 10% 2em 15%;
     width: 100%;
     background-image: linear-gradient(45deg, #4a4fd6, #ce40b6);
     box-shadow: 0 0 1px 1px #6f5ae8;

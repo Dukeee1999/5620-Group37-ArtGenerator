@@ -35,8 +35,7 @@ export default function Login() {
   <NavbarLogin/>
     <div className="container">
           <h2 className="container">Log In</h2>
-  
- {error && <Alert variant="danger">{error}</Alert>}
+
           <div className="form">
             <Form onSubmit={handleSubmit}>
               <Stack gap={2}>
@@ -60,6 +59,8 @@ export default function Login() {
                   </Row>
                 </Form.Group>
               </Stack>
+
+              {error && <Alert variant="danger">{error}</Alert>}
 
                 <Button disabled={loading} className="mid w-100" type="submit">
                   Log In

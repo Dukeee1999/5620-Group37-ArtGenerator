@@ -81,3 +81,22 @@
 	max-width: 75%;
     padding:20px;
 }
+
+textarea {
+    font-family: "Poppins", sans-serif;
+    border: 1px solid #ccc;
+}
+
+#panel > input, #panel > textarea {
+    width: 70%;
+}
+
+#panel > textarea {
+    resize: none;
+}
+
+#panel > button {
+    width: auto;
+    border: none;
+    padding: 0;
+}

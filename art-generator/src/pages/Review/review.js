@@ -82,20 +82,19 @@ import { useEffect, useRef, useState } from 'react'
    }, []);
 
   return (
-    <div >
-              <NavbarReview />
+    <div id="artwork-review">
+
+  <NavbarReview />
 
 
-      <div className="container">
-    <img 
-                src={StaryNight}
-                alt=""
-                className="img"
-            />
+  <div className="container">
+  <img 
+            src={StaryNight}
+            alt=""
+            className="img"
+        />
 
-</div>
-<body >
-    
+  </div>
 <div style={{
     display: 'flex',
     alignItems: 'center',
@@ -127,11 +126,6 @@ import { useEffect, useRef, useState } from 'react'
 
     
 </div> */}
-
-
-</body>
-
-
     </div>
   )
 }

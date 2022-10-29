@@ -1,21 +1,24 @@
-.container {
+
+#artwork-review img {
+  margin-top: 5%;
+}
+
+#artwork-review .container {
     color: #fff;
 	border-radius: 5px;
     align-items: center;
     justify-content: center;
     align-items: center;
-	width: 650px;
-	max-width: 75%;
+	/*width: 650px;
+	max-width: 75%; */
 }
 
 .reviewBoard {  border: 1px solid black;
     padding: 600px;
     color: #fff;
-    background-image: linear-gradient(#595CE8, #709dff);
 	border-radius: 5px;
     align-items: center;
-    justifyContent: center;
-	width: 800px;
+	/* width: 800px; */
 	max-width: 100%;
     display: 'flex',
 

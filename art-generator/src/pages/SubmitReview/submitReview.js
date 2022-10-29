@@ -92,11 +92,11 @@ function handleLogout() {
     <div class="columnReview">
     <div class = "reviewPanel">
     <div class = "row">
-        <div class = "row">
+        <div id="panel" class = "row">
         <h2>How do you feel?</h2>
 
         <h3 className='textcolumn' >Comments on artwork</h3>
-        <input id = "review" type="text" placeholder="Enter your review" onblur="getVal()"/>
+        <textarea id="review" rows="6" placeholder="Enter your review" onblur="getVal()" />
 
         <h3 className='textcolumn' >Rate on artwork</h3>
         <input id="rate" name="rate" type="text" class="form-control" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')" placeholder="Enter your rate out of 100" />
@@ -125,6 +125,7 @@ function handleLogout() {
 </div> */}
 
 </div>
+// <input id = "review" type="text" placeholder="Enter your review" onblur="getVal()"/>
 //     <div >
 //               <NavbarSubmitReview />
 

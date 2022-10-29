@@ -13,6 +13,7 @@ import {
     where,
     addDoc,
   } from "firebase/firestore";
+import { register } from "react-scroll/modules/mixins/scroller"
 
 export default function Signup() {
   const emailRef = useRef()
@@ -53,7 +54,7 @@ export default function Signup() {
   }
 
   return (
-    <>
+    <div id="signup">
       <NavbarLogin/>
 
     <div className="container">
@@ -61,7 +62,6 @@ export default function Signup() {
           <h2 className="text-center mb-4">Sign Up</h2>
           <div className="form">
 
-          {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
           <Stack gap={2}>
 
@@ -73,8 +73,9 @@ export default function Signup() {
               <Form.Label>User Name</Form.Label>
               <Form.Control type="userName" ref={userNameRef} required />
             </Form.Group>
-            <Form.Group id="email">
+            <Form.Group controlId="role-container">
                 <Form.Label>Role</Form.Label>
+                <span></span>
                 <select id="role" ref={roleRef}>
                     <option value="creator">creator</option>
                     <option value="artist">artist</option>
@@ -82,13 +83,19 @@ export default function Signup() {
             </Form.Group>
             <Form.Group id="password">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" ref={passwordRef} required />
+              <Form.Control 
+                name="password" 
+                type="password"
+                placeholder="The password must have at least 6 characters"
+                ref={passwordRef} 
+                required />
             </Form.Group>
             <Form.Group id="password-confirm">
               <Form.Label>Password Confirmation</Form.Label>
               <Form.Control type="password" ref={passwordConfirmRef} required />
             </Form.Group>
             </Stack>
+            {error && <Alert variant="danger">{error}</Alert>}
 
             <Button disabled={loading} className="w-100" type="submit">
               Sign Up
@@ -107,6 +114,6 @@ export default function Signup() {
       </div>
       </div>
 
-    </>
+    </div>
   )
 }

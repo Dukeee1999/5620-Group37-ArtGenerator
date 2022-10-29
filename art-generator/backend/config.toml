@@ -1,0 +1,12 @@
+title = "ELEC5620 backend config"
+
+[owner]
+names = ["Yunqi Sha", "Ziheng Wang", "Mutao Wang", "Yuan Li"]
+
+[database]
+db_sql = "mysql"
+db_port = 3306
+db_host = "rm-wz9hq71ce602n5z14ao.rwlb.rds.aliyuncs.com"
+db_user = "elec5620"
+db_pass = "Elec5620saikou"
+db_name = "elec5620"
