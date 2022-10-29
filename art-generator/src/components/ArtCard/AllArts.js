@@ -20,18 +20,17 @@ import ArtCard from './ArtCard';
             
         const getAllArtworks = async () => {
            
-        //   const userCol = query(collection(db, 'users'),where('uid', '==', auth.currentUser.uid));
-        //   const userCol = query(collection(db, 'users'),where('uid', '==', auth.currentUser.uid));
-        //   const userSnapshot = await getDocs(userCol);
-        //   const userList = userSnapshot.docs.map(doc => doc.data());
-        //   userList[0].artworkCollection.map((artwork) => {
-        //     const artCol = query(collection(db, 'artworks'),where('id', '==', artwork));
-        //     const artSnapshot = getDocs(artCol);
-            // artSnapshot.then((snapshot) => {
-            //   const artList = snapshot.docs[0].data();
-            //   setArtworks(artworks => [...artworks, artList]);
-            // })
-        //   })
+          // const userCol = query(collection(db, 'users'),where('uid', '==', auth.currentUser.uid));
+          // const userSnapshot = await getDocs(userCol);
+          // const userList = userSnapshot.docs.map(doc => doc.data());
+          // userList[0].artworkCollection.map((artwork) => {
+          //   const artCol = query(collection(db, 'artworks'),where('id', '==', artwork));
+          //   const artSnapshot = getDocs(artCol);
+          //   artSnapshot.then((snapshot) => {
+          //     const artList = snapshot.docs[0].data();
+          //     setArtworks(artworks => [...artworks, artList]);
+          //   })
+          // })
           const artCol = collection(db, 'artworks');
           const artSnapshot = getDocs(artCol);
           const artList = artSnapshot.then((snapshot) => {
@@ -58,7 +57,7 @@ import ArtCard from './ArtCard';
        <Container>
         <h2>All Artworks</h2>
         <Row className="justify-content-md-center">
-        <ArtCard/><ArtCard/><ArtCard/><ArtCard/><ArtCard/><ArtCard/>
+        {artworks && artworks.map((artwork) => <ArtCard artDes={artwork.prompt} artSrc={artwork.image[0]}/>)}
         </Row>
        </Container>
       );

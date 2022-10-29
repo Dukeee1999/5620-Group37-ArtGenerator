@@ -1,14 +1,16 @@
 import { useEffect, useRef, useState } from 'react'
   import { Button,Card } from 'react-bootstrap'
 
-  function ArtCard(prompt){
+  function ArtCard(promps){
+    const [artSrc, setSrc] = useState(promps.artSrc);
+    const [artDes, setDes] = useState(promps.artDes);
 
        return (
         <Card style={{ width: '20rem'}}>
-          <Card.Img variant="top" src="https://replicate.delivery/pbxt/CKOBe5uFuI1AdqzjRfDBh3CTgSqCERfQTrvhHILyQVkhEs0fA/out-0.png" />
+          <Card.Img variant="top" src={artSrc} />
           <Card.Body>
             <Card.Text>
-              description
+              {artDes}
             </Card.Text>
             <Button variant="primary">Detail</Button>
           </Card.Body>
