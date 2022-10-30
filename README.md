@@ -12,7 +12,7 @@ Pre-con:
 
 Start Back-end:
 
-`cd art-generator/backend && python3 -m venv env && source env/bin/activate && flask run`
+`cd art-generator/src/api && python3 -m venv env && source env/bin/activate && flask run`
 
 Start Front-end: 
 
