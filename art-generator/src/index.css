@@ -48,6 +48,16 @@ button {
   box-sizing: border-box;
 }
 
+.card {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
 
+.card-body {
+  /* background-color:#709dff; */
+}
 
+.card-text {
+  color: black;
+}
 

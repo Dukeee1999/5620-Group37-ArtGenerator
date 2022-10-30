@@ -16,6 +16,8 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import GenedArt from "../GenedArt/GenedArt";
+import ArtCard from "../ArtCard/ArtCard";
+import AllArts from "../ArtCard/AllArts";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -101,7 +103,7 @@ function Hero() {
         {prediction && (
           <div>
             <p>{prediction.status}</p>
-            {console.log(document.getElementsByName("prompt")[0].value)}
+            {/* {console.log(document.getElementsByName("prompt")[0].value)} */}
             {prediction.output && (
               <GenedArt
                 show={true}
