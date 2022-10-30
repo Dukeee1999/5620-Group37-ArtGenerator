@@ -51,42 +51,49 @@ export default function Gallery() {
       if(index==0){
       return {
         url: artwork.image[0],
+        desc: artwork.prompt.replace(/\s+/g, ''),
         position: [0, 0, 1.5],
         rotation: [0, 0, 0]
       }
     }else if(index==1){
       return {
         url: artwork.image[0],
+        desc: artwork.prompt.replace(/\s+/g, ''),
         position: [-1.75, 0, 0.25],
         rotation: [0, Math.PI / 2.5, 0]
       }
     }else if(index==2){
       return {
         url: artwork.image[0],
+        desc: artwork.prompt.replace(/\s+/g, ''),
         position: [-2.15, 0, 1.5],
         rotation: [0, Math.PI / 2.5, 0]
       }
     }else if(index==3){
       return {
         url: artwork.image[0],
+        desc: artwork.prompt.replace(/\s+/g, ''),
         position: [-2, 0, 2.75],
         rotation: [0, Math.PI / 2.5, 0]
       }
     }else if(index==4){
       return {
         url: artwork.image[0],
+        desc: artwork.prompt.replace(/\s+/g, ''),
         position: [-0.8, 0, -0.6],
         rotation: [0, 0, 0]
       }
     }else if(index==5){
       return {
         url: artwork.image[0],
+        desc: artwork.prompt.replace(/\s+/g, ''),
         position: [0.8, 0, -0.6],
         rotation: [0, 0, 0]
       }
     }else if(index==6){
       return {
         url: artwork.image[0],
+        desc: artwork.prompt.replace(/\s+/g, ''),
         position: [1.75, 0, 0.25],
         rotation: [0, -Math.PI / 2.5, 0]
       }
@@ -94,6 +101,7 @@ export default function Gallery() {
     else if(index==7){
       return {
         url: artwork.image[0],
+        desc: artwork.prompt.replace(/\s+/g, ''),
         position: [2.15, 0, 1.5],
         rotation: [0, -Math.PI / 2.5, 0]
       }
@@ -101,6 +109,7 @@ export default function Gallery() {
     else if(index==8){
       return {
         url: artwork.image[0],
+        desc: artwork.prompt.replace(/\s+/g, ''),
         position: [2, 0, 2.75],
         rotation: [0, -Math.PI / 2.5, 0]
       }
@@ -161,17 +170,17 @@ function Frames({ images, q = new THREE.Quaternion(), p = new THREE.Vector3() })
       ref={ref}
       onClick={(e) => (e.stopPropagation(), setLocation(clicked.current === e.object ? '/' : '/item/' + e.object.name))}
       onPointerMissed={() => setLocation('/')}>
-      {images.map((props) => <Frame key={props.url} {...props} /> /* prettier-ignore */)}
+      {images.map((props) => <Frame key={props.url,props.desc} {...props} /> /* prettier-ignore */)}
     </group>
   )
 }
 
-function Frame({ url, c = new THREE.Color(), ...props }) {
+function Frame({ url,desc ,c = new THREE.Color(), ...props }) {
   const [hovered, hover] = useState(false)
   const [rnd] = useState(() => Math.random())
   const image = useRef()
   const frame = useRef()
-  const name = getUuid(url)
+  const name = desc
   useCursor(hovered)
   useFrame((state) => {
     image.current.material.zoom = 2 + Math.sin(rnd * 10000 + state.clock.elapsedTime / 3) / 2
