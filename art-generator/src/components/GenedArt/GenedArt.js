@@ -43,12 +43,6 @@ function GenedArt(props) {
         {description}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-          {/* <Button variant="secondary"> */}
-            Save
-          </Button>
-          <Button variant="primary">Detail</Button>
-          <Button variant="primary">Share</Button>
         </Modal.Footer>
       </Modal>
     </>

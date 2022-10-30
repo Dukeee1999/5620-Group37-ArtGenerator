@@ -18,7 +18,7 @@ const captionStyle = {
   const data = [
     {
       image: StaryNight,
-      caption: "Sary Night (1890)",
+      caption: "Stary Night (1890)",
     },
     {
       image: Japan,

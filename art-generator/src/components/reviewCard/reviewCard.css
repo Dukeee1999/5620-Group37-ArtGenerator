@@ -93,5 +93,6 @@
   }
 
   .avatar {
+    float: left;
     border: solid #6f5ae8 1px;
   }

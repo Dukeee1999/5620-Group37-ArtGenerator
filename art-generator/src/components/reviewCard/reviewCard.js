@@ -15,7 +15,7 @@ const ReviewCard=({username :username, comments: comments, rating: rating, price
     <div className="reviewItem">
         <div id="innerContainer">
     <div className="riAvart">
-        <div className="avatar">
+        <div>
         <img src={Artist}alt="Avatar" class="avatar"/>
             <div className="userName">{username}</div>
         </div>

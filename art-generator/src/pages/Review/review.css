@@ -1,6 +1,8 @@
 
-#artwork-review img {
+#artwork {
   margin-top: 5%;
+  margin-left: 22%;
+  max-width: 50%;
 }
 
 #artwork-review .container {

@@ -1,0 +1,9 @@
+#artworkItem {
+    width: 30%;
+    gap: 2;
+    margin: 1.4%;
+}
+
+#artworkItem > img {
+    margin-top: 20px;
+}

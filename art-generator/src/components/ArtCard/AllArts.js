@@ -14,6 +14,8 @@ import {
 import { async } from '@firebase/util';
 import ArtCard from './ArtCard';
 
+import './ArtArts.css'
+
   function AllArts(){
     const [artworks, setArtworks] = useState([]);
     useEffect(() => {
@@ -55,7 +57,7 @@ import ArtCard from './ArtCard';
        }
 
        return (
-       <Container name='allArtworks'>
+       <Container name='allArtworks' id='allArtworks'>
         <h2>All Artworks</h2>
         <Row className="justify-content-md-center">
         {artworks && artworks.map((artwork) => <ArtCard artDes={artwork.prompt} artSrc={artwork.image[0]} artId = {artwork.id}/>)}

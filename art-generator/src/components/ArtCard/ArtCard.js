@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react'
   import { Button,Card } from 'react-bootstrap'
   import { useNavigate,Link } from "react-router-dom";
 
+  import './ArtCard.css'
+
   function ArtCard(promps){
     const [artSrc, setSrc] = useState(promps.artSrc);
     const [artDes, setDes] = useState(promps.artDes);
@@ -15,7 +17,7 @@ import { useEffect, useRef, useState } from 'react'
       nav(`/${artId}/review`)
     }
        return (
-        <Card style={{ width: '20rem'}}>
+        <Card id="artworkItem">
           <Card.Img variant="top" src={artSrc} />
           <Card.Body>
             <Card.Text>

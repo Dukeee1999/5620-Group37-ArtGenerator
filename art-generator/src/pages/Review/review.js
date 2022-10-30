@@ -63,6 +63,7 @@ import { useEffect, useRef, useState } from 'react'
                 src={Pic}
                 alt=""
                 className="img"
+                id="artwork"
             />
 
   </div>
