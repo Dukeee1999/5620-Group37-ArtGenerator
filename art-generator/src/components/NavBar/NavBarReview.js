@@ -8,6 +8,7 @@ import { AwesomeButton } from 'react-awesome-button';
 import { useLocation } from 'react-router-dom';
 import { useContext } from "react";
 import './NavBarStyle.css';
+import { auth } from '../../firebase.config';
 
 function NavbarReview() {
     const [error, setError] = useState("")
@@ -22,7 +23,11 @@ function NavbarReview() {
 
 
 
-    async function handleLogout() {
+    async function handleSubmit() {
+        if(auth.currentUser==null){
+            alert("Please login to submit a review")
+            return;
+        }
         // var user = localStorage.getItem("user")
         const code = location.pathname.split("/")[1];
         // console.log(`/${code}/submitreview`);
@@ -40,8 +45,7 @@ function NavbarReview() {
             <ul className="nav-menu">
             </ul>
             <div>
-            <AwesomeButton id = "review" type="secondary" onPress={handleLogout}>Review</AwesomeButton></div> 
-         
+            <AwesomeButton id = "review" type="secondary" onPress={handleSubmit}>Submit review</AwesomeButton></div> 
 
         </div>
     )
