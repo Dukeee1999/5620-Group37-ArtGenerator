@@ -55,7 +55,7 @@ import ArtCard from './ArtCard';
        }
 
        return (
-       <Container>
+       <Container name='allArtworks'>
         <h2>All Artworks</h2>
         <Row className="justify-content-md-center">
         {artworks && artworks.map((artwork) => <ArtCard artDes={artwork.prompt} artSrc={artwork.image[0]} artId = {artwork.id}/>)}
