@@ -40,6 +40,7 @@ import ArtCard from './ArtCard';
           artList.then((artList) => {
             console.log(artList);
             setArtworks(artList);
+
             console.log(artworks)
           })
         }
@@ -57,10 +58,10 @@ import ArtCard from './ArtCard';
        <Container>
         <h2>All Artworks</h2>
         <Row className="justify-content-md-center">
-        {artworks && artworks.map((artwork) => <ArtCard artDes={artwork.prompt} artSrc={artwork.image[0]}/>)}
+        {artworks && artworks.map((artwork) => <ArtCard artDes={artwork.prompt} artSrc={artwork.image[0]} artId = {artwork.id}/>)}
         </Row>
        </Container>
       );
   }
 
-export default AllArts
+export default AllArts 

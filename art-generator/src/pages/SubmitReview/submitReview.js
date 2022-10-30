@@ -14,6 +14,7 @@ import { useAuth } from '../../contexts/AuthContext'
 import { Link, useNavigate } from "react-router-dom"
 import { useLocation } from 'react-router-dom';
 import { doc, setDoc } from "firebase/firestore"; 
+import { useEffect, useRef, useState } from 'react'
 
 import {
   getFirestore,
@@ -29,6 +30,37 @@ import {
   const nav = useNavigate();
   const location = useLocation();
   const code = location.pathname.split("/")[1];
+  const [Pic, setPic]  = useState([]);
+  const [User, setUser] = useState([]);
+
+  var val =  null ; 
+
+  useEffect(() => {
+    const getImg = async () => {
+      const imgUrl = query(collection(db, 'artworks'), where ('id', '==', `${code}`));
+
+      const artworkSnapshot = await getDocs(imgUrl);
+      setPic (artworkSnapshot.docs.map(doc => doc.data())[0].image[0])
+
+
+      const User = query(collection(db, 'users'), where ('uid', '==', `${currentUser.uid}`));
+      const userSnapshot = await getDocs(User);
+      console.log("below is checker")
+
+      if (userSnapshot.docs.map(doc=>doc.data())[0].role == "artist"){
+        setUser(false);
+      }else{
+        setUser(true);
+
+      }
+      // setUser(userSnapshot.docs.map(doc=>doc.data())[0].role)
+
+    }
+
+    getImg();
+
+
+  })
 
 
 
@@ -36,8 +68,15 @@ async function handleSubmit(e) {
   var review = document.getElementById("review").value
   var rate = document.getElementById("rate").value
   var price = document.getElementById("price").value
+  
+  console.log(User)
+  if (User ==false  && price.length ==0 ){
+    window.alert("INVALID INPUT1");
 
-  if (review.length==0 || rate.length==0 || price.length==0){
+  }
+  
+
+  else if (review.length==0 || rate.length==0 ){
     window.alert("INVALID INPUT");
   }else if(rate > 100 || rate<0){
     window.alert("INVALID RATE INPUT");
@@ -70,74 +109,49 @@ async function handleSubmit(e) {
 
   }
 function handleLogout() {
-    // nav('/review')
-    // window.prompt('请输入喜欢的内容')
-  }
-  return (
 
+  }
+    return(
 
 <div class ="columm">
 
-    <div class = "row">
-    <NavbarSubmitReview />
-    </div>
-    <div class = "row2">
-    <div class="column">
-    <img 
-                src={StaryNight}
-                alt=""
-                className="img"
-            />
-        </div>
-    <div class="columnReview">
-    <div class = "reviewPanel">
-    <div class = "row">
-        <div class = "row">
-        <h2>How do you feel?</h2>
-
-        <h3 className='textcolumn' >Comments on artwork</h3>
-        <input id = "review" type="text" placeholder="Enter your review" onblur="getVal()"/>
-
-        <h3 className='textcolumn' >Rate on artwork</h3>
-        <input id="rate" name="rate" type="text" class="form-control" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')" placeholder="Enter your rate out of 100" />
-        <h3 className='textcolumn' >Price on artwork</h3>
-        <input id="price" name="price" type="text" class="form-control" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')" placeholder="Enter your price" />
-        <div className='bottoncontainer'></div>
-        <AwesomeButton id = "review" type="secondary" onPress={handleSubmit}>Submit</AwesomeButton>
-
-                <div className='bottoncontainer'></div>
-
-        </div>
-
-            </div>
-
-    </div>        
-        
-        </div>
-
-        </div>
-
-
-
-              {/* <div class="row">
-  <div class="column">xxxx</div>
-  <div class="column">yyyyyy</div>
-</div> */}
-
+<div class = "row">
+<NavbarSubmitReview />
 </div>
-//     <div >
-//               <NavbarSubmitReview />
+<div class = "row2">
+<div class="column">
+<img 
+            src={Pic}
+            alt=""
+            className="img"
+        />
+    </div>
+<div class="columnReview">
+<div class = "reviewPanel">
+<div class = "row">
+    <div class = "row">
+    <h2>How do you feel?</h2>
 
+    <h3 className='textcolumn' >Comments on artwork</h3>
+    <input id = "review" type="text" placeholder="Enter your review" onblur="getVal()"/>
 
-//       <div className="container">
-//     <img 
-//                 src={StaryNight}
-//                 alt=""
-//                 className="img"
-//             />
-// </div>
+    <h3 className='textcolumn' >Rate on artwork</h3>
+    <input id="rate" name="rate" type="text" class="form-control" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')" placeholder="Enter your rate out of 100" />
+    <h3 className='textcolumn' >Price on artwork / artist only</h3>
+    
+    <input id="price" disabled = {User} name="price" type="text" class="form-control" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')" placeholder="Enter your price" /> 
+ 
 
-//     </div>
-  )
+    <div className='bottoncontainer'></div>
+    <AwesomeButton id = "review" type="secondary" onPress={handleSubmit}>Submit</AwesomeButton>
+            <div className='bottoncontainer'></div>
+    </div>
+        </div>
+</div>        
+    </div>
+    </div>
+</div>
+    );
+
 }
 export default SubmitReview

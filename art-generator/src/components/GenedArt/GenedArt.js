@@ -8,6 +8,9 @@ function GenedArt(props) {
   const [description, setDescription] = useState(props.description);
 //   const [status, setStatus] = useState(props.status)
   const handleClose = () => setShow(false);
+
+
+
 //   const handleShow = () => setShow(true);
 
   return (
