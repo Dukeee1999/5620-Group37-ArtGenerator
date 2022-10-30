@@ -1,4 +1,4 @@
-# 5620-Group37-ArtGenerator
+# 5620-Group37-ArtGenerator 🎨
 
 ## 📖 Introdcution
 With the fast expansion of Web3.0, NFT and Metauniverse industry, there is a great diversity of AI powered NFT generators emerging in the market like ‘GoArt’, ‘NotLukSus’ and even ‘Google Collab’. For this project, we devoted ourselves to creating a deep learning based artwork generator with only one paragraph of description. Upon the basic function, we also would like to build a community for creators to share their opinion about each other’s artworks, artists will also be invited and encouraged to share their thoughts about artworks in a professional manner. Furthermore, it will be great for creators to immerse in their own 3D gallery with all their arts collection.
